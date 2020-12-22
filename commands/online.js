@@ -2,9 +2,9 @@ const https = require('https');
 const config = require('../config.json');
 
 module.exports = {
-	name: 'online',
-	description: 'List online avatars.',
-	execute(message, args) {
+  name: 'online',
+  description: 'List online avatars.',
+  execute(message, args) {
     https.get(config.onlineURL, (res) => {
       res.on('data', function (body) {
         const splitLines = body.toString().split('<br>');
@@ -29,5 +29,5 @@ module.exports = {
     }).on('error', (e) => {
       message.channel.send('Unable to fetch online list of avatars.');
     });
-	},
+  },
 };
