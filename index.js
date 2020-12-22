@@ -1,6 +1,6 @@
 // Useful guide: https://discordjs.guide/command-handling/
 // Manage bot process with pm2: https://discordjs.guide/improving-dev-environment/pm2.html
-// ./pm2 start index.js
+// $ pm2 start index.js
 
 const config = require('./config.json');
 const fs = require('fs');
@@ -10,7 +10,8 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 client.once('ready', () => {
-  console.log('Ready!');
+	console.log('Ready!');
+	client.user.setActivity('!online');
 });
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
