@@ -1,5 +1,6 @@
 # Super secret config data
 config.json
+config.json.backup
 
 # Logs
 logs
